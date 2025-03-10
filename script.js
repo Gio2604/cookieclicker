@@ -4,7 +4,8 @@ class Cookie {
         // Aantal verzamelde koekjes
         this.count = 0;
         // Aantal gekochte automatische klikkers
-        this.autoClickers = 0;
+        this.autoClickers1 = 0;
+        this.autoClickers2 = 0;
         // Waarde per klik (kan worden verhoogd)
         this.clickValue = 1;
     }
@@ -16,25 +17,20 @@ class Cookie {
     }
 
     // Methode om een automatische klikker te kopen, kost 10 koekjes
-    buyAutoClicker() {
+    AutoClicker1() {
         if (this.count >= 10) {
             this.count -= 10;
-            this.autoClickers++;
+            this.autoClickers1++;
             this.updateUI();
         }
     }
+    
     // Methode om een automatische klikker te kopen, kost 50 koekjes
-    buyAutoClicker2() {
+    AutoClicker2() {
         if (this.count >= 50) {
             this.count -= 50;
+            this.autoClickers2++;
             this.updateUI();
-              // Start een interval om elke seconde 5 koekjes toe te voegen
-              if (!this.x5CookiesInterval) {
-                this.x5CookiesInterval = setInterval(() => {
-                    this.count += 5;
-                    this.updateUI();
-                }, 1000);
-            }
         }
     }
 
@@ -64,10 +60,13 @@ class Cookie {
 
     // Methode waarmee automatische klikkers elke seconde koekjes toevoegen
     autoClick() {
-        if (this.autoClickers > 0) {
-            this.count += this.autoClickers;
-            this.updateUI();
+        if (this.autoClickers1 > 0) {
+            this.count += this.autoClickers1;
         }
+        if (this.autoClickers2 > 0) {
+            this.count += this.autoClickers2 * 2;
+        }
+        this.updateUI();
     }
 
 
@@ -93,10 +92,10 @@ class Game {
     // Methode om event listeners toe te voegen aan de knoppen en de automatische klikfunctie te starten
     init() {
         const cookieButton = document.getElementById("cookie");
-        const autoClickerButton = document.getElementById("buy-autoclicker");
+        const autoClickerButton = document.getElementById("autoclicker1");
         const x5CookiesButton = document.getElementById("buy-x5cookies");
         const x10CookiesButton = document.getElementById("buy-x10cookies");
-        const autoClicker2Button = document.getElementById("buy-autoclicker2");
+        const autoClicker2Button = document.getElementById("autoclicker2");
 
         // Koppel de klik-knop aan de click-methode van Cookie
         if (cookieButton) {
@@ -105,11 +104,11 @@ class Game {
 
         // Koppel de "Koop Auto Clicker"-knop aan de juiste methode
         if (autoClickerButton) {
-            autoClickerButton.addEventListener("click", () => this.cookie.buyAutoClicker());
+            autoClickerButton.addEventListener("click", () => this.cookie.AutoClicker1());
         }
 
         if (autoClicker2Button) {
-            autoClicker2Button.addEventListener("click", () => this.cookie.buyAutoClicker2());
+            autoClicker2Button.addEventListener("click", () => this.cookie.AutoClicker2());
         }
 
         // Koppel de "Koop x5 Click Upgrade"-knop aan de juiste methode
