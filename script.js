@@ -9,24 +9,10 @@ class AutoClicker{
             game.count -= this.price;
             this.autoClickers++;
             game.updateUI();
+        } else {
+            alert("Je hebt niet genoeg cookies!!");}
         }
     }
-}
-
-// class AutoClicker2{
-//     constructor () {
-//         this.autoClickers = 0;
-//         this.price = 50;
-//     }
-
-//     AutoClicker(game) {
-//         if (game.count >= this.price) {
-//             game.count -= this.price;
-//             this.autoClickers++;
-//             game.updateUI();
-//         }
-//     }
-// }
 
 
 // Klasse die de logica van het klikken en automatische klikken beheert
@@ -37,11 +23,6 @@ class Cookie {
         this.clicker1 = new AutoClicker(10);
         this.clicker2 = new AutoClicker(50);
         this.clicker3 = new AutoClicker(80);
-        // this.clicker2.price = 50;
-        // Aantal gekochte automatische klikkers
-        // this.autoClickers1 = 0;
-        // this.autoClickers2 = 0;
-        // Waarde per klik (kan worden verhoogd)
         this.clickValue = 1;
     }
 
@@ -82,7 +63,10 @@ class Cookie {
             this.clickValue *= 10;
             this.updateUI();
         }
+    else {
+        alert("Je hebt niet genoeg cookies!!");}
     }
+    
 
     // Methode om een upgrade te kopen waarmee elke klik 50 keer zoveel koekjes oplevert, kost 500 koekjes
     buyX10Cookies() {
@@ -92,7 +76,10 @@ class Cookie {
             this.updateUI();
             
         }
+    else {
+        alert("Je hebt niet genoeg cookies!!");}
     }
+    
 
     // Methode waarmee automatische klikkers elke seconde koekjes toevoegen
     autoClick() {
