@@ -57,7 +57,7 @@ class Cookie {
     
 
     // Methode om een upgrade te kopen waarmee elke klik 10 keer zoveel koekjes oplevert, kost 100 koekjes
-    buyX5Cookies() {
+    upgrade1() {
         if (this.count >= 100) {
             this.count -= 100;
             this.clickValue *= 10;
@@ -69,7 +69,7 @@ class Cookie {
     
 
     // Methode om een upgrade te kopen waarmee elke klik 50 keer zoveel koekjes oplevert, kost 500 koekjes
-    buyX10Cookies() {
+    upgrade2() {
         if (this.count >= 500) {
             this.count -= 500;
             this.clickValue *= 50;
@@ -117,8 +117,8 @@ class Game {
     init() {
         const cookieButton = document.getElementById("cookie");
         const autoClicker1Button = document.getElementById("autoclicker1");
-        const x5CookiesButton = document.getElementById("buy-x5cookies");
-        const x10CookiesButton = document.getElementById("buy-x10cookies");
+        const upgrade1Button = document.getElementById("upgrade1");
+        const upgrade2Button = document.getElementById("upgrade2");
         const autoClicker2Button = document.getElementById("autoclicker2");
         const autoClicker3Button = document.getElementById("autoclicker3");
         // Koppel de klik-knop aan de click-methode van Cookie
@@ -141,13 +141,13 @@ class Game {
         
 
         // Koppel de "Koop x5 Click Upgrade"-knop aan de juiste methode
-        if (x5CookiesButton) {
-            x5CookiesButton.addEventListener("click", () => this.cookie.buyX5Cookies());
+        if (upgrade1Button) {
+            upgrade1Button.addEventListener("click", () => this.cookie.upgrade1());
         }
 
         // Koppel de "Koop x10 Click Upgrade"-knop aan de juiste methode
-        if (x10CookiesButton) {
-            x10CookiesButton.addEventListener("click", () => this.cookie.buyX10Cookies());
+        if (upgrade2Button) {
+            upgrade2Button.addEventListener("click", () => this.cookie.upgrade2());
         }
 
         // Start een interval om elke seconde automatische kliks uit te voeren
