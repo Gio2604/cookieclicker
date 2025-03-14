@@ -15,7 +15,7 @@ class AutoClicker{
     }
 
 
-// Klasse die de logica van het klikken en automatische klikken beheert
+// class die de logica van het klikken en automatische klikken beheert
 class Cookie {
     constructor() {
         // Aantal verzamelde koekjes
@@ -36,16 +36,16 @@ class Cookie {
     AutoClicker1() {
         this.clicker1.AutoClicker(this);
     }
-    
+    // Methode om een automatische klikker te kopen, kost 50 koekjes
     AutoClicker2() {
         this.clicker2.AutoClicker(this);
     }
-    
+    // Methode om een automatische klikker te kopen, kost 80 koekjes
     AutoClicker3() {
         this.clicker3.AutoClicker(this);
     }
 
-    // Methode om een automatische klikker te kopen, kost 50 koekjes
+    
 
 
     /**
@@ -105,8 +105,18 @@ class Cookie {
     }
 }
 
+// Haal elementen op
+const toggleBtn = document.getElementById("toggle-btn");
+const sidebar = document.getElementById("sidebar");
+const content = document.getElementById("content");
 
-// Klasse die het spel initialiseert en de knoppen koppelt aan acties
+// Voeg een event listener toe voor de toggle-knop
+toggleBtn.addEventListener("click", () => {
+  sidebar.classList.toggle("open");
+  content.classList.toggle("shifted");
+});
+
+// class die het spel initialiseert en de knoppen koppelt aan acties
 class Game {
     constructor() {
         this.cookie = new Cookie();

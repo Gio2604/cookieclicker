@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #000000;
-    margin: 0, 12px;
     padding: 0;
+    margin: 0;
 }
 
 h1 {
@@ -14,14 +14,14 @@ h1 {
 .points-container {
     display: inline-block;
     border-radius: 5px;
-    background-color: #e8e8e8;
-    color: #000000;
+    color: #ffffff;
     padding: 0px 50px;
+    margin-top: 30px;
     font-size: 16x;
 }
 
 .cookie-container {
-    margin-top: 10px;
+    margin-top:150px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +48,7 @@ h1 {
 #cookie-count {
     font-size: 16px;
     font-weight: bold;
-    color: #000000;
+    color: #ffffff;
     margin-top: 20px;
 }
 
@@ -57,14 +57,71 @@ button {
     color: white;
     border: none;
     padding: 10px 20px;
-    margin: 10px;
+    margin: 20px;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
-    flex-direction: row;
+    margin-bottom: 20px;
 }
 
 button:hover {
     background-color: #468dd8;
 }
 
+  /* Container voor de sidebar en content */
+  .container {
+    display: flex;
+  }
+  /* Sidebar styling */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    overflow: hidden;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding-top: 100px;
+  }
+  /* Open state van de sidebar */
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  /* Navigatie-items in de sidebar */
+  .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar nav ul li {
+    border-bottom: 1px solid #444;
+  }
+  .sidebar nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  /* Content styling */
+  .content {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+    transition: margin-left 0.3s ease;
+  }
+  /* Als de sidebar open is, schuift de content mee */
+  .content.shifted {
+    margin-left: 250px;
+  }
+  /* Toggle button styling */
+  .toggle-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+  }
