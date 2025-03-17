@@ -6,11 +6,6 @@ body {
     margin: 0;
 }
 
-h1 {
-    color: #4b3621;
-    font-size: 50px;
-}
-
 .points-container {
     display: inline-block;
     border-radius: 5px;
@@ -53,7 +48,7 @@ h1 {
 }
 
 button {
-    background-color: #4d9bee;
+    background-color: #7606ff;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -65,7 +60,15 @@ button {
 }
 
 button:hover {
-    background-color: #468dd8;
+    background-color: #6605dc;
+}
+
+.info-container{
+    display: flex;
+    margin-top: 50px;
+    color: #ffffff;
+    background-color: #6605dc;
+    width: 200px;
 }
 
   /* Container voor de sidebar en content */
@@ -119,9 +122,14 @@ button:hover {
     top: 15px;
     left: 15px;
     padding: 10px 15px;
-    background-color: #333;
+    background-color: #7606ff;
     color: #fff;
     border: none;
     cursor: pointer;
     z-index: 1000;
+  }
+
+  .toggle-btn:hover {
+    background-color: #ffffff;
+    color: #000000;
   }

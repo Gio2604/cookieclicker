@@ -46,8 +46,6 @@ class Cookie {
     }
 
     
-
-
     /**
      * prijs is anders
      * aantal
